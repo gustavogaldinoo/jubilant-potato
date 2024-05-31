@@ -1,4 +1,7 @@
 #include <string>
+#include <vector>
+#include <cstdint>
+
 using namespace std;
 
 void toFuzz(string name, string surname) {
