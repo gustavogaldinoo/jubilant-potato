@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 void toFuzz(string name, string surname) {
@@ -11,7 +10,10 @@ void toFuzz(string name, string surname) {
     }
 }
 
-int main() {
-    toFuzz("Gustavo", "Galdino");
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *Data, size_t Size) {
+    string fullName( Data, Data + Size );
+    string name = fullName.substr(0, Size/2);
+    string surname = fullName.substr(Size/2, Size/2);
+    toFuzz(name, surname);
     return 0;
 }
